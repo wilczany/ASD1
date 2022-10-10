@@ -33,7 +33,7 @@ def D2(list):
             rec=True
     Ans.append(tmp*count)
     if rec==True:
-        print('hwdp')
+
         D2(Ans)
     return Ans
 D1()
