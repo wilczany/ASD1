@@ -18,24 +18,29 @@ def D1():
 
 # sortuje liste metodą sort o złożoności pesymistycznej n*log(n) (Tim sort)
 def D2(list):
-    Ans=[]
-    rec=False
-    count=0
     list.sort()
+    print(list)
+    Ans=[]
+    count=1
     tmp=list[0]
-    for i in range(len(list)):
+
+    for i in range(1,len(list)):
         if list[i] != tmp:
             Ans.append(tmp*count)
             tmp=list[i]
-            count=0
-        count+=1
-        if(count>1):
-            rec=True
+            count=1
+        else:
+            count+=1
     Ans.append(tmp*count)
-    if rec==True:
-
-        D2(Ans)
+    if(rep(Ans)):
+        Ans=D2(Ans)
     return Ans
-D1()
-A2=D2(A2)
-print(A2)
+    
+    
+def rep(list):
+    for i in list:
+        if(list.count(i)>1):
+            return True
+    return False        
+
+print(len(D2(A2)))
